@@ -1,0 +1,43 @@
+package svc;
+
+import java.sql.*;
+import vo.Member;
+
+public class LoginService {
+	public static Member getLoginMember(String id, String pw) {
+		Connection conn = null;
+		
+		String url = "jdbc:mysql://localhost:3306/jspproject?useDB=false&serverTimezone=UTC";
+		String user = "root";
+		String password = "rootpw";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url, user, password);
+			
+			Statement stat = null;
+			ResultSet rs = null;
+			
+			String sql = "SELECT * FROM user WHERE user_id = '" + id + "';";
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			while(rs.next()) {
+				int count = rs.getInt("count");
+				
+				if(count > 0) {
+					Member member = new Member();
+					member.setId(id);
+					member.setPasswd(pw);
+					System.out.println("성공");
+					return member;
+				} else {
+					return null;
+				}
+			}
+		} catch(Exception e) {
+			
+		}
+		return null;
+	}
+}

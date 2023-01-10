@@ -1,0 +1,30 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="vo.Member" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@ include file="connectDB.jsp" %>
+	<%
+		Statement stat = null;
+		ResultSet rs = null;
+		
+		ArrayList<Member> list = new ArrayList<>();
+		
+		String sql = "SELECT * FROM user ";
+		stat = conn.createStatement();
+		rs = stat.executeQuery(sql);
+		
+		while(rs.next()) {
+			Member member = new Member();
+			member.setId(rs.getString(1));
+			member.setPasswd(rs.getString(2));
+		}
+	%>
+</body>
+</html>

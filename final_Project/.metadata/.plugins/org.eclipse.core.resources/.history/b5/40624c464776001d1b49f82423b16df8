@@ -1,0 +1,81 @@
+package controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import svc.UserCheck;
+
+@WebServlet("/SignupServlet")
+public class SignupServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public SignupServlet() {
+        super();
+    }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String btn_idCheck = request.getParameter("btn_idCheck");
+		String btn_pwCheck = request.getParameter("btn_pwCheck");
+		String btn_signup = request.getParameter("btn_signup");
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String pwCheck = request.getParameter("pwCheck");
+		
+		if(btn_idCheck != null) {
+			HttpSession session = request.getSession();
+			if(id != null && !id.equals("")) {
+				UserCheck userCheck = new UserCheck();
+				if(userCheck.getIdCheck(id)) {
+					String info = "아이디가 사용 가능합니다.";
+					session.setAttribute("idCheckInfo", info);
+					response.sendRedirect("signupView.jsp");
+				} else {
+					String info = "아이디가 사용 불가능합니다.";
+					session.setAttribute("idCheckInfo", info);
+					response.sendRedirect("signupView.jsp");
+				}
+				btn_idCheck = null;
+			} else {
+				String info = "사용하실 아이디를 입력하세요.";
+				session.setAttribute("idCheckInfo", info);
+				response.sendRedirect("signupView.jsp");
+				btn_idCheck = null;
+			}
+		}
+		
+		if(btn_pwCheck != null) {
+			HttpSession session = request.getSession();
+			if(pw != null && pwCheck != null && !pw.equals("") && !pwCheck.equals("")) {
+				UserCheck userCheck = new UserCheck();
+				
+				if(userCheck.getPwCheck(pw, pwCheck)) {
+					String info = "비밀번호가 일치합니다.";
+					session.setAttribute("pwCheckInfo", info);
+					response.sendRedirect("signupView.jsp");
+				} else {
+					String info = "비밀번호가 일치하지 않습니다.";
+					session.setAttribute("pwCheckInfo", info);
+					response.sendRedirect("signupView.jsp");
+				}
+				btn_pwCheck = null;
+			} else {
+				String info = "사용하실 비밀번호를 입력하세요.";
+				session.setAttribute("pwCheckInfo", info);
+				response.sendRedirect("signupView.jsp");
+				btn_pwCheck = null;
+			}
+		}
+		
+		if(btn_signup != null) {
+			
+		} else {
+			btn_signup = null;
+		}
+	}
+}

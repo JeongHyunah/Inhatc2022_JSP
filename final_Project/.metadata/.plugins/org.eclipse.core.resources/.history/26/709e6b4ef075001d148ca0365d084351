@@ -1,0 +1,25 @@
+package svc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import db.connectDB;
+import vo.Member;
+
+public class LoginService {
+	public static Member getLoginMember(String id, String pw) {
+		Connection conn = null;
+		
+		String url = "jdbc:mysql://localhost:3306/jspproject?useDB=false&serverTimezone=UTC";
+		String user = "root";
+		String password = "rootpw";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url, user, password);
+		} catch(Exception e) {
+			
+		}
+	}
+	return null;
+}

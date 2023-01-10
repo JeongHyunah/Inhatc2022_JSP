@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <%
+ 	Connection conn = null;
+	
+	String url = "jdbc:mysql://localhost:3306/jspproject?useDB=false&serverTimezone=UTC";
+	String user = "root";
+	String password = "rootpw";
+	
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection(url, user, password);
+		
+		Statement stat = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT COUNT(CASE WHEN user_id = '" + id + "' AND user_pw = '" + pw +"' THEN 1 END) AS 'count' FROM user;";
+		
+		stat = conn.createStatement();
+		rs = stat.executeQuery(sql);
+		while(rs.next()) {
+			int count = rs.getInt("count");
+			
+			if(count > 0) {
+				Member member = new Member();
+				member.setId(id);
+				member.setPasswd(pw);
+				
+			} else {
+				
+			}
+		}
+ %>
+</body>
+</html>

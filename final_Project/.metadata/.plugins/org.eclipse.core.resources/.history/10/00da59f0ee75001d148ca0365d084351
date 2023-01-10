@@ -1,0 +1,9 @@
+package svc;
+
+import vo.Member;
+
+public class LoginService {
+	public static Member getLoginMember(String id, String passwd) {
+		return null;
+	}
+}

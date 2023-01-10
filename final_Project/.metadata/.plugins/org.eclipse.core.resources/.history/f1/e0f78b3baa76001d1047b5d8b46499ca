@@ -1,0 +1,72 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  		
+<body class="d-flex h-100 text-center text-bg-dark">
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  		<header>
+    		<p align="left"><a href="../mainView.jsp"><img src="../img/title.png" width="150" height="55"></img></a></p>
+  		</header>
+  		
+		<main class="px-3">
+    		<p>
+    			눈을 떴다. 이곳이 어디인지 기억나지 않는다. 신문지로 막힌 창문 사이에 세어나오는 빛으로 그나마 방의 형태를 인지할 수 있었다. <br>
+    			작은 방이다. 책장과 연결된 큰 책상, 사무용 의자, 작은 침대 그리고 사람. <br><br>
+    			
+    			사람? 침대를 사이에 두고 누군가 있다. 인기척이 느껴지지 않는다. 깨질 듯 아픈 머리로 상황을 이해하기 위해 10분간 가만히 있었다. <br>
+    			근데 저 사람은 전혀 움직이질 않는다. <br><br>
+    			
+    			몸을 간신히 일으켜 침대에 앉았다. 사람이 보였다, 아니 시체라고 하는게 더 가깝겠지. <br>
+    			그 시체에서 뿜어져 나온 피는 이미 바닥에 말라 붙어있었다. 날카로운 것에 찔린 것 같아 보였다. <br>
+    			마른 세수를 하는데, 비릿한 냄새가 코를 찌른다. 그제서야 내 손과 옷에 말라붙은 검붉은 피가 보였다. <br>
+    			그리고 양 팔에 날카로운 고통이 느껴진다. 베인듯한 상처가 나있다. <br><br>
+    			
+    			내가 저 사람을 죽인건가? 아니면 저 사람이 날 죽이려고 했던 건가, 그래서 방어하기 위해 내가 이렇게 다친건가? <br>
+    			아무 기억도 나지 않는다. 심지어 내가 누구인지 기억도 나지 않는다 <br><br>
+    			
+    			이상하게도 이 상황이 익숙하다. 당장이라도 도망치고 싶고, 빨리 이곳을 벗어나야 한다는 생각이 들지 않는다. <br>
+    			천천히 몸을 일으켜 방 안을 살펴보기로 했다. <br><br>
+    			
+    			무엇을 먼저 봐야 할까? <br><br>
+    			
+    		<% 	request.setCharacterEncoding("UTF-8");
+				String p2Check = (String)session.getAttribute("p2Check");
+				String p3Check = (String)session.getAttribute("p3Check");
+				if(p2Check == null) {
+			%>
+    			<a href="./page2.jsp"><img src="../img/game01_p1-body01.png" width="150" height="150"></img></a>
+    			<a style="padding:10px"></a>
+    		<%
+				} else {
+			%>
+				<a href="./page2.jsp"><img src="../img/game01_p1-body02.png" width="150" height="150"></img></a>
+    			<a style="padding:10px"></a>
+    		<%
+				}
+				if(p3Check == null) {
+			%>
+				<a href="./page3.jsp"><img src="../img/game01_p1-door01.png" width="150" height="150"></img></a>
+    			<a style="padding:10px"></a>
+    			<a href="./page4.jsp"><img src="../img/game01_p1-desk01.png" width="150" height="150"></img></a>
+    		</p>
+  		</main>
+
+ 		<div class="b-example-divider"></div>
+		<div class="container">
+  			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    			<div class="col-md-4 d-flex align-items-center">
+     				<a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"></a>
+     				<span class="mb-3 mb-md-0 text-muted">Copylight &copy; Holomaking &nbsp; All Rights Reserved.</span>
+    			</div>
+  			</footer>
+		</div>
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+package db;
+
+public class connectDB {
+	public void connetDB() {
+		Connection conn = null;
+	}
+}

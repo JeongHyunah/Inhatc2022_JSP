@@ -1,0 +1,7 @@
+package svc;
+
+public class game01Service {
+	public static boolean getP2Answer(String answer) {
+		return false;
+	}
+}

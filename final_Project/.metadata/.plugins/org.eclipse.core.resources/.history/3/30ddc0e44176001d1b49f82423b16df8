@@ -1,0 +1,14 @@
+package svc;
+
+public class UserCheck {
+	public boolean getPwCheck(String pw, String pwCheck) {
+		if(pw.equals(pwCheck) && !pw.equals("") && !pwCheck.equals(""))
+			return true;
+		else 
+			return false;
+	}
+	
+	public boolean getIdCheck(String id) {
+		
+	}
+}

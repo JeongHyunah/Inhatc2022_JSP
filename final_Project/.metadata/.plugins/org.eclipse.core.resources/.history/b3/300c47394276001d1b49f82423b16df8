@@ -1,0 +1,63 @@
+package controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import svc.UserCheck;
+
+@WebServlet("/SignupServlet")
+public class SignupServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    public SignupServlet() {
+        super();
+    }
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String btn_idCheck = request.getParameter("btn_idCheck");
+		String btn_pwCheck = request.getParameter("btn_pwCheck");
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String pwCheck = request.getParameter("pwCheck");
+		
+		if(btn_idCheck != null) {
+			if(id != null && !id.equals("")) {
+				
+			} else {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('사용하실 아이디를 입력하세요.')");
+				out.println("history.back()");
+				out.println("</script>");
+				btn_idCheck = null;
+			}
+		}
+		if(btn_pwCheck != null) {
+			if(pw != null && pwCheck != null && !pw.equals("") && !pwCheck.equals("")) {
+				UserCheck userCheck = new UserCheck();
+				if(userCheck.getPwCheck(pw, pwCheck)) {
+					
+				} else {
+					
+				}
+				btn_pwCheck = null;
+			} else {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('사용하실 비밀번호를 입력하세요.')");
+				out.println("history.back()");
+				out.println("</script>");
+				btn_pwCheck = null;
+			}
+		}
+	}
+}

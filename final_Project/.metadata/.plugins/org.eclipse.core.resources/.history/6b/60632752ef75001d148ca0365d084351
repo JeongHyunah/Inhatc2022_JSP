@@ -1,0 +1,7 @@
+package svc;
+
+public class LoginService {
+	public static Member getLoginMember(String id, String pw) {
+		
+	}
+}

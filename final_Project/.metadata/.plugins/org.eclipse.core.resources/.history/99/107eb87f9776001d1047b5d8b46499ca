@@ -1,0 +1,9 @@
+package svc;
+
+public class game01Service {
+	public static boolean getP2Answer(String answer) {
+		String P2Answer = "1969.11.11";
+		if(answer.equals(P2Answer))
+		return false;
+	}
+}

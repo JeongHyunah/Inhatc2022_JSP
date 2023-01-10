@@ -1,0 +1,9 @@
+package vo;
+
+public class Review {
+	private String reviewId;
+	private String userId;
+	private String gameTitle;
+	private float gameAverage;
+	
+}

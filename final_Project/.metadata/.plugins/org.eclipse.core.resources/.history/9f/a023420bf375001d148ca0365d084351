@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@ include file="connectDB.jsp" %>
+	<%
+		Statement stat = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT COUNT(CASE WHEN user_id = '" + id + "' AND user_pw = '" + pw +"' THEN 1 END) AS 'count' FROM user;";
+		
+	%>
+</body>
+</html>

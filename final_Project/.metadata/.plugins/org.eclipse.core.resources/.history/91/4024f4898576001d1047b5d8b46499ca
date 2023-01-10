@@ -1,0 +1,73 @@
+<%@ page import="java.net.URLEncoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>mainView</title>
+</head>
+<body>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr><td>
+		<%
+			request.setCharacterEncoding("UTF-8");
+			String id = (String)session.getAttribute("id");
+			if(id == null) {
+		%>
+			<jsp:include page="./view/Header.jsp" flush="false"/>
+		<%
+			} else {
+		%>
+			<jsp:include page="./view/Header.jsp" flush="false">
+				<jsp:param name="id" value="<%=id%>" />
+			</jsp:include>
+		<%
+			}
+		%>
+			</td>
+		</tr>
+		<tr><td>
+		<%
+			if(id == null) {
+		%>
+			<jsp:include page="./view/Section_info.jsp" flush="false"/>
+		<%
+			} else {
+		%>
+			<jsp:include page="./view/Section_info.jsp" flush="false">
+				<jsp:param name="id" value="<%=id%>" />
+			</jsp:include>
+		<%
+			}
+		%>
+			</td>
+		</tr>
+		<tr><td>
+			
+			<table class="table table-dark table-striped">
+		<tr><td colspan="4">방구석탈출의 리뷰</td></tr>
+		<tr>
+			<th>리뷰 번호</th><th>유저</th><th>제목</th><th>평점</th>
+		</tr>
+		<%
+			request.setCharacterEncoding("UTF-8");			
+			ArrayList<Review> list = (ArrayList<Review>)session.getAttribute("list");
+		%>
+		<c:forEach var="review" items="${list }">
+			<tr>
+				<td>${review.getReviewId() }</td>
+				<td>${review.getUserId() }</td>
+				<td>${review.getGameTitle() }</td>
+				<td>${review.getGameAverage() }</td>
+		</c:forEach>
+	</table>
+			</td>
+		</tr>
+		<tr><td>
+			<jsp:include page="./view/Footer.jsp" flush="false"/>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

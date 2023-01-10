@@ -1,0 +1,47 @@
+package svc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import vo.Member;
+
+public class UserCheck {
+	public boolean getPwCheck(String pw, String pwCheck) {
+		if(pw.equals(pwCheck) && !pw.equals("") && !pwCheck.equals(""))
+			return true;
+		else 
+			return false;
+	}
+	
+	public boolean getIdCheck(String id) {
+		Connection conn = null;
+		
+		String url = "jdbc:mysql://localhost:3306/jspproject?useDB=false&serverTimezone=UTC";
+		String user = "root";
+		String password = "rootpw";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url, user, password);
+			
+			Statement stat = null;
+			ResultSet rs = null;
+			
+			String sql = "SELECT COUNT(CASE WHEN aId = '" + id + "' THEN 1 END) AS 'count' FROM user;";
+			
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+			while(rs.next()) {
+				Member member = new Member();
+				member.setId(rs.getString("user_id"));
+				member.setPasswd(rs.getString("user_pw"));
+				return member;
+			}
+		} catch(Exception e) {
+			
+		}
+		return null;
+	}
+}

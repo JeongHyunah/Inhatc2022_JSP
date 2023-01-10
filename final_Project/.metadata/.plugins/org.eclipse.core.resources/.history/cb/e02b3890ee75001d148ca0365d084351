@@ -1,0 +1,21 @@
+package db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class connectDB {
+	public void connectDB() {
+		Connection conn = null;
+		
+		String url = "jdbc:mysql://localhost:3306/jspproject?useSSL=false&serverTimezone=UTC";
+		String db_user = "root";
+		String db_passwd = "rootpw";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url, db_user, db_passwd);
+		} catch(Exception e) {
+			
+		}
+	}
+}

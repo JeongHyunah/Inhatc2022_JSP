@@ -1,0 +1,11 @@
+package svc;
+
+import db.connectDB;
+import vo.Member;
+
+public class LoginService {
+	public static Member getLoginMember(String id, String pw) {
+		connectDB conn;
+		return;
+	}
+}

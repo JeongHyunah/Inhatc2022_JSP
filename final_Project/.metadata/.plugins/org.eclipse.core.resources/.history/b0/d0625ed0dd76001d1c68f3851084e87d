@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<body class="d-flex h-100 text-center text-bg-dark">
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  		<header>
+    		<p align="left"><a href="../mainView.jsp"><img src="../img/title.png" width="150" height="55"></img></a></p>
+  		</header>
+  		
+  		<form action="./page1.jsp" method="post">
+		<main class="px-3">
+    		<p>
+    			<img src="../img/game01_p5-computer.png" width="400" height="400"></img><br>
+ 	   			암호가 풀렸다. <br><br>
+ 	   			
+ 	   			"너의 이름은..?" <br>
+ 	   			머리가 아프다. 내 이름이 뭐지, 이게 혹시 문에 걸린 자물쇠를 풀 수 있는 열쇠일까? <br><br>
+ 	   		</p>
+ 	   		<br><br>
+    		<div align="center">
+    			<% 	
+    				request.setCharacterEncoding("UTF-8");
+					String p4Check = (String)session.getAttribute("p4Check");
+				%>
+    			<input type="submit" style="width:80px; height:35px;" name="btn_p5" value=<%=p4Check %>>
+     		</div>
+  		</main>
+  		</form>
+
+ 		<div class="b-example-divider"></div>
+		<div class="container">
+  			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    			<div class="col-md-4 d-flex align-items-center">
+     				<a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"></a>
+     				<span class="mb-3 mb-md-0 text-muted">Copylight &copy; Holomaking &nbsp; All Rights Reserved.</span>
+    			</div>
+  			</footer>
+		</div>
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
