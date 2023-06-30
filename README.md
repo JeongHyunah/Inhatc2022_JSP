@@ -8,8 +8,8 @@
 
 <div align="center">
   <h1></h1>
-  <a href="https://drive.google.com/file/d/1Tl70LD0QjfR1OZhJvEhAi0NSxiREdsqn/view?usp=sharing">
-      <img src="https://github.com/JeongHyunah/Mobile_Quiz_Battle_Game/assets/104128693/830c260c-db57-4926-aa64-cae857a380a1"></img></a><br>
-  👆 화면구성도 이미지를 클릭하시면, 결과보고서를 볼 수 있습니다.
+      <img src="https://github.com/JeongHyunah/Mobile_Quiz_Battle_Game/assets/104128693/830c260c-db57-4926-aa64-cae857a380a1"></img><br>
+      <a href="https://drive.google.com/file/d/1Tl70LD0QjfR1OZhJvEhAi0NSxiREdsqn/view?usp=sharing">
+        👆 화면구성도가 포함된 결과 보고서를 보고 싶다면 클릭하세요.</a>
   <h1></h1>
 </div>
